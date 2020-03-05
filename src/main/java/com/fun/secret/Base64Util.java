@@ -1,7 +1,6 @@
 package com.fun.secret;
 
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
+import java.util.Base64;
 
 /**
  * base64算法工具
@@ -18,7 +17,7 @@ public class Base64Util {
      * @throws Exception
      */
     public static String decryptBASE64(String key) throws Exception {
-        return new String(new BASE64Decoder().decodeBuffer(key));
+        return new String(Base64.getDecoder().decode(key));
     }
 
     /**
@@ -28,7 +27,7 @@ public class Base64Util {
      * @throws Exception
      */
     public static String encryptBASE64(String key) throws Exception {
-        return (new BASE64Encoder()).encode(key.getBytes("UTF-8"));
+        return Base64.getEncoder().encodeToString(key.getBytes("UTF-8"));
     }
 
 
