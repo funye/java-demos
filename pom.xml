@@ -26,7 +26,11 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.62</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.10</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
@@ -111,6 +115,24 @@
             <version>1.9.3</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.alibaba/easyexcel -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>easyexcel</artifactId>
+            <version>2.1.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.17</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.17</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
@@ -129,8 +151,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
                 <configuration>
-                    <source>11</source>
-                    <target>11</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                     <encoding>${project.encoding}</encoding>
                 </configuration>
             </plugin>
@@ -146,25 +168,4 @@
         </plugins>
     </build>
 
-    <!--定义仓库信息 -->
-    <repositories>
-        <repository>
-            <id>center</id>
-            <name>Maven Official Repository</name>
-            <url>http://mvnrepository.com/artifact</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>spring</id>
-            <name>springsource</name>
-            <url>http://repo.springsource.org/release</url>
-        </repository>
-        <repository>
-            <id>mvnrepository</id>
-            <name>mvnrepository</name>
-            <url>http://mvnrepository.com/artifact</url>
-        </repository>
-    </repositories>
 </project>

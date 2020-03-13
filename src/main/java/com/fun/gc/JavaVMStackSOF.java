@@ -2,7 +2,7 @@ package com.fun.gc;
 
 /**
  * Created by yehuan on 2017/2/16.
- * VM-args: -Xss128k
+ * VM-args: -Xss128k  -Xlog:gc*
  */
 public class JavaVMStackSOF {
 

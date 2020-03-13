@@ -1,4 +1,4 @@
-package com.fun.extend;
+package com.fun.lang.extend;
 
 /**
  * @author huanye

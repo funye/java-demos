@@ -3,7 +3,7 @@ package com.fun.gc;
 /**
  * testGC() 方法执行后，objA 和 objB会不会被GC呢 ？
  * Created by yehuan on 2017/2/14.
- * VM-args: -XX:+PrintGCDateStamps -XX:+PrintGCDetails
+ * VM-args: -XX:+PrintGCDateStamps -XX:+PrintGCDetails/-Xlog:gc*
  */
 public class ReferenceCountingGC {
     public Object instance;

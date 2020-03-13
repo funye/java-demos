@@ -6,7 +6,7 @@ import java.lang.reflect.Field;
 
 /**
  * Created by yehuan on 2017/2/16.
- * VM-args: -Xmx20M -XX:MaxDirectMemorySize=10M
+ * VM-args: -Xmx20M -XX:MaxDirectMemorySize=10M -XX:+PrintGCDetails
  */
 public class DirectMemoryOOM {
 

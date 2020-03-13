@@ -1,11 +1,18 @@
 package com.fun.collection;
 
+import com.alibaba.excel.annotation.ExcelProperty;
+import lombok.Data;
+
 /**
  * Created by yehuan on 2017/2/13.
  */
+@Data
 public class User {
 
+    @ExcelProperty("名称")
     private String name;
+
+    @ExcelProperty("年龄")
     private int age;
 
     public User() {
@@ -14,21 +21,5 @@ public class User {
     public User(String name, int age) {
         this.name = name;
         this.age = age;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
     }
 }

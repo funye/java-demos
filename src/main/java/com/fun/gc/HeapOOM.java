@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * Created by yehuan on 2017/2/16.
- * VM-args:-Xms20m -Xmx20m -XX:+HeapDumpOnOutOfMemoryError
+ * VM-args:-Xms20m -Xmx20m -XX:+HeapDumpOnOutOfMemoryError -Xlog:gc*
  */
 public class HeapOOM {
 	static class OOMObject{
