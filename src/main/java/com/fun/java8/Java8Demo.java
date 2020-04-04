@@ -104,6 +104,9 @@ public class Java8Demo {
         LocalDateTime dt = LocalDateTime.parse(dateTimeStr,formatter);
         long aaa = dt.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
 
+        LocalDate ld = LocalDate.parse(dateTimeStr,DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        System.out.println(ld);
+
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         System.out.println(sdf.format(new Date(aaa)));
     }
