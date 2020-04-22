@@ -1,5 +1,8 @@
 package com.fun.jvm;
 
+/**
+ * vm-args: -XX:+PrintGCDetails
+ */
 public class CanReliveObj {
 
     public static CanReliveObj obj;

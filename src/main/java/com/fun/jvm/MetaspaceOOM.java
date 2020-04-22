@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 
 /**
  * 数据元区溢出示例
- * VM-args: -Xms20m -Xmx20m -XX:MetaspaceSize=5m -XX:MaxMetaspaceSize=5m -XX:+HeapDumpOnOutOfMemoryError -XX:+PrintGCDetails
+ * VM-args: -Xms256m -Xmx256m -Xmn128m -XX:MetaspaceSize=5m -XX:MaxMetaspaceSize=9m -XX:+PrintGCDetails
  */
 public class MetaspaceOOM {
 
