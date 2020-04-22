@@ -1,8 +1,10 @@
-package com.fun.gc;
+package com.fun.jvm;
 
 /**
- * Created by yehuan on 2017/2/16.
- * VM-args: -Xss128k  -Xlog:gc*
+ * 栈溢出示例
+ * Created by fun on 2017/2/16.
+ * VM-args: -Xss128k  -XX:+PrintGCDetails -Xloggc:log/gc.log
+ * 修改Xss的值，查看调用的栈的深度
  */
 public class JavaVMStackSOF {
 
@@ -19,7 +21,7 @@ public class JavaVMStackSOF {
 			oom.staticLeak();
 		}catch(Throwable e){
 			System.out.println("static length: "+ oom.stackLength);
-			throw e;
+//			throw e;
 		}
 	}
 }

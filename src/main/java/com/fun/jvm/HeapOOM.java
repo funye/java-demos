@@ -1,15 +1,16 @@
-package com.fun.gc;
+package com.fun.jvm;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by yehuan on 2017/2/16.
- * VM-args:-Xms20m -Xmx20m -XX:+HeapDumpOnOutOfMemoryError -Xlog:gc*
+ * 堆溢出示例
+ * Created by fun on 2017/2/16.
+ * VM-args:-Xms20m -Xmx20m -XX:+HeapDumpOnOutOfMemoryError -XX:+PrintGCDetails
  */
 public class HeapOOM {
 	static class OOMObject{
-
+		private static String test="test";
 	}
 
 	public static void main(String[] args) {
