@@ -5,7 +5,6 @@ import java.util.List;
 
 /**
  * 堆溢出示例
- * Created by fun on 2017/2/16.
  * VM-args:-Xms20m -Xmx20m -Xmn10m -XX:+PrintGCDetails -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=D:\Users\80279309\Documents\tempwork\headoom.dump
  */
 public class HeapOOM {

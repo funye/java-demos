@@ -9,7 +9,6 @@ import java.nio.ByteBuffer;
 /**
  * https://tech.meituan.com/2019/02/14/talk-about-java-magic-class-unsafe.html Unsafe类
  * 直接内存溢出示例
- * Created by fun on 2017/2/16.
  * VM-args: -Xmx20M -XX:MaxDirectMemorySize=5M -XX:+PrintGCDetails -XX:+HeapDumpBeforeFullGC -XX:+HeapDumpAfterFullGC -XX:HeapDumpPath=D:\Users\80279309\Documents\tempwork\dmemoom.dump
  * <p>
  * MaxDirectMemorySize 在直接内存超出这个值的时候，开始进行GC和Full GC

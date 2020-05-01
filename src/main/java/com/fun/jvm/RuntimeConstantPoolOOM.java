@@ -5,7 +5,6 @@ import java.util.List;
 
 /**
  * 运行时常量池溢出（方法区、数据元区）
- * Created by fun on 2017/2/16.
  * VM-args:-XX:PermSize=10M -XX:MaxPermSize=10M (jdk>=1.8之后没有此配置) -XX:+PrintGCDetails
  */
 public class RuntimeConstantPoolOOM {

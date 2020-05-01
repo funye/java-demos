@@ -3,7 +3,6 @@ package com.fun.jvm;
 /**
  * 引用计数测试
  * testGC() 方法执行后，objA 和 objB会不会被GC呢 ？
- * Created by yehuan on 2017/2/14.
  * VM-args: -XX:+PrintGCDateStamps -XX:+PrintGCDetails/-Xlog:gc*
  */
 public class ReferenceCountingGC {

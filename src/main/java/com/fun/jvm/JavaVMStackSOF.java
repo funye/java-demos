@@ -2,7 +2,6 @@ package com.fun.jvm;
 
 /**
  * 栈溢出示例
- * Created by fun on 2017/2/16.
  * VM-args: -Xss128k  -XX:+PrintGCDetails -Xloggc:log/gc.log
  * 修改Xss的值，查看调用的栈的深度
  */
