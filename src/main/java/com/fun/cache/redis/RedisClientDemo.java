@@ -1,11 +1,10 @@
-package com.fun.redis;
+package com.fun.cache.redis;
 
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import redis.clients.jedis.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 /**
  * 测试

@@ -1,10 +1,9 @@
-package com.fun.redis;
+package com.fun.cache.redis;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisSentinelPool;
 import redis.clients.jedis.Transaction;
 
-import java.io.PrintStream;
 import java.util.HashSet;
 import java.util.Set;
 

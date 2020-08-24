@@ -14,7 +14,7 @@ public class PokerMachine {
 
 	private static final String[] POKER_COLORS = {"黑桃","红心","梅花","方块"};
 	private static final String[] POKER_FACES_NORMAL = {"1","2","3","4","5","6","7","8","9","10","J","Q","K"}; // 普通,体现大小
-	private static final String[] POKER_FACES_DZ = {"3","4","5","6","7","8","9","10","J","Q","K","1","2"}; // 地址,体现大小
+	private static final String[] POKER_FACES_DZ = {"3","4","5","6","7","8","9","10","J","Q","K","1","2"}; // 斗地主,体现大小
 	private SecureRandom rd = new SecureRandom();
 
 	public PokerMachine() {
