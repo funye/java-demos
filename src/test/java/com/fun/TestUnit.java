@@ -13,6 +13,7 @@ public class TestUnit {
     @Test
     public void testUUID() {
         System.out.println(UUID.randomUUID());
+        System.out.println(new Random().nextInt(2));
     }
 
     @Test

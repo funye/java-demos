@@ -1,4 +1,4 @@
-package com.fun.poker;
+package com.fun.algorithm;
 
 import java.security.SecureRandom;
 import java.util.*;
