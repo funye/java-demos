@@ -1,4 +1,4 @@
-package com.fun.lang;
+package com.fun.lang.fx;
 
 /**
  * 泛型

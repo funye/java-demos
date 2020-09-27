@@ -17,8 +17,8 @@ public class Java8Demo {
     public static void main(String[] args) {
         Java8Demo demo = new Java8Demo();
 //        demo.testLambda();
-//        demo.testStream();
-        demo.testDate();
+        demo.testStream();
+//        demo.testDate();
     }
 
     /**
@@ -65,9 +65,11 @@ public class Java8Demo {
 
 
         // 2. use filter to select
-        List<String> strList = Arrays.asList("hello","yes","no","world","java");
+        List<String> strList = Arrays.asList("hello","yes","no","world","java", "aaa", "kafka");
         List<String> filtered = strList.stream().filter(x -> x.length()> 3).map(String::toUpperCase).collect(Collectors.toList());
         System.out.printf("Original List : %s, filtered list : %s %n", strList, filtered);
+        List<String> filtered2 = strList.parallelStream().filter(x -> x.length()> 3).map(String::toUpperCase).collect(Collectors.toList());
+        System.out.printf("Original List : %s, filtered list : %s %n", strList, filtered2);
 
         // 3. use stream to calculate
         List<Integer> integerList = Arrays.asList(10,20,40,80,50);

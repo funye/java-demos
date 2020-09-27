@@ -86,6 +86,13 @@ public class TestUnit {
     }
 
 
+    @Test
+    public void testR() {
+        System.out.printf("C语言语言言言言\rjava语言\n--------\n");
+        System.out.printf("C语言\njava语言\n--------\n");
+        System.out.printf("C语言\r\njava语言\n--------\n");
+    }
+
 
 
 }
