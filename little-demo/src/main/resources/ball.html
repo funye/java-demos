@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<style>
+
+	.btn {
+		width: 92%;
+		background: #1a73e8;
+		color: #FFFFFF;
+		padding: 10px 15px;
+		text-align: center;
+		margin-top: 15px;
+		margin-bottom: 15px; 
+		border-radius: 5px;
+	}
+	.title{
+		margin-top: 20px;
+	}
+	#result {
+		margin-top: 20px;
+	}
+	.center {
+		text-align: center;
+	}
+</style>
+<body>
+	<div>
+		<div><h3 class='center'>天选之子</h3></div>
+		<div class='btn' id='btn1' onclick="randomOne();">随机1</div>
+	    <div class='btn' id='btn2' onclick="randomFive();">随机5</div>
+	</div>
+
+	<div class="title">随机结果:</div>
+	<div id='result'></div>
+	
+
+<script>
+
+	function randomInt(max) {
+    	return Math.floor(Math.random() * (max));
+    }
+
+	function bigHappy() {
+        var red = new Array();
+        // init pool
+        for (var i = 0; i < 35; i++) {
+            red[i] = i + 1;
+        } 
+
+        var blue = new Array();
+        for (var i = 0; i < 12; i++) {
+            blue[i] = i + 1;
+        }
+
+        // random 5 red ball and 2 blue ball
+        var result = new Array();
+        var redBound = 35;
+        for (var i = 0; i < 5; i++) {
+            var index = randomInt(redBound);
+            result[i] = red[index];
+            red.splice(index, 1);
+            --redBound;
+        }
+
+        result.sort(function(a, b){return a - b});
+
+
+        var blueIdx = randomInt(12);
+        var blueOne = blue[blueIdx];
+        blue.splice(blueIdx, 1);
+        blueIdx = randomInt(11);
+        var blueTwo = blue[blueIdx];
+        blue.splice(blueIdx, 1);
+
+        var rs = "";
+        for (var i=0; i<result.length; i++) {
+            rs += result[i] + " ";
+        }
+
+        rs += " | ";
+        if (blueOne <= blueTwo) {
+            rs += blueOne + " " + blueTwo;
+        } else {
+            rs += blueTwo + " " + blueOne;
+        }
+
+        return rs;
+    }
+
+    function doubleColor() {
+        var RED_SIZE = 33;
+        var BLUE_SIZE = 16;
+        var red = new Array();
+        // init pool
+        for (var i = 0; i < RED_SIZE; i++) {
+            red[i] = i + 1;
+        }
+        var blue = new Array();
+        for (var i = 0; i < BLUE_SIZE; i++) {
+            blue[i] = i + 1;
+        }
+
+        // random 6 red ball and 1 blue ball
+        var result = new Array();
+        var redBound = RED_SIZE;
+        for (var i = 0; i < 6; i++) {
+            var index = randomInt(redBound);
+            result[i] = red[index];
+            red.splice(index, 1);
+            --redBound;
+        }
+        result.sort(function(a, b){return a - b});
+
+
+        // 拼接
+        var rs = "";
+        for (var i=0; i<result.length; i++) {
+            rs += result[i] + " ";
+        }
+
+        var blueIdx = randomInt(BLUE_SIZE);
+        rs += "| " + blue[blueIdx] + " ";
+        blue.splice(blueIdx, 1);
+
+        return rs;
+
+    }
+
+	function randomOne() {
+
+		var a = bigHappy();
+		var b = doubleColor();
+
+		document.querySelector("#result").innerHTML="<p>bigHappy：<br/>" + a + "</p>" 
+		+ "<p>doubleColor:<br/>" +b+"</p>";
+
+
+	}
+
+	function randomFive() {
+	
+		var a = "";
+        for (var i = 0; i < 5; i++) {
+            a += bigHappy() + "<br/>";
+        }
+        
+        var b = "";
+        for (var i = 0; i < 5; i++) {
+            b += doubleColor() + "<br/>";
+        }
+
+		document.querySelector("#result").innerHTML="<p>bigHappy：<br/>" + a + "</p>" 
+		+ "<p>doubleColor：<br/>" +b+"</p>";
+	}
+   
+</script>
+</body>
+</html>
