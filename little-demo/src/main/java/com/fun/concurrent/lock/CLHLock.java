@@ -29,8 +29,6 @@ public class CLHLock {
             while (preNode.isLocked) {
 
             }
-            preNode = null;
-            LOCAL.set(node);
         }
         // 如果不存在前驱节点，表示该锁没有被其他线程占用，则当前线程获得锁
 
@@ -40,11 +38,14 @@ public class CLHLock {
     public void unlock() {
         // 获取当前线程对应的节点
         CLHNode node = LOCAL.get();
-        // 如果tail节点等于node，则将tail节点更新为null，同时将node的lock状态职位false，表示当前线程释放了锁
+        // 如果队列里只有当前线程，则释放对当前线程的引用（for GC）。
         if (!UPDATER.compareAndSet(this, node, null)) {
-            node.isLocked = false; // 设置false之后 上面的while结束
+            node.isLocked = false; // 如果还有后续线程,改变状态，让后续线程结束自旋
         }
-        node = null;
+    }
+
+    public void remove() {
+        LOCAL.remove();
     }
 
     public void doWithinLock(String task) {

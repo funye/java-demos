@@ -5,7 +5,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class TicketLockV2 {
 
     // 排队获取ticket的编号
-    private AtomicInteger queueNum = new AtomicInteger();
+    private AtomicInteger ticketNum = new AtomicInteger();
 
     // 当前处理的ticket编号
     private AtomicInteger currentHandleTicket = new AtomicInteger(1);// 第一个待处理的人 获取的ticket的编号为1
@@ -14,7 +14,7 @@ public class TicketLockV2 {
     private ThreadLocal<Integer> currentTicket = new ThreadLocal<>();
 
     public void lock() {
-        int currentTicketNum = queueNum.incrementAndGet(); // 取号
+        int currentTicketNum = ticketNum.incrementAndGet(); // 取号
         currentTicket.set(currentTicketNum);
         while (currentTicketNum != currentHandleTicket.get()){ // 取号之后比较自己的号码和当前处理号码是否一致，不一致进行自旋
 
@@ -27,6 +27,10 @@ public class TicketLockV2 {
             throw new RuntimeException("release lock exception");
         }
         System.out.println("release lock success");
+    }
+
+    public void remove() {
+        currentTicket.remove();
     }
 
     public void doWithinLock(String task) {

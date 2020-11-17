@@ -1,20 +1,23 @@
 package com.fun.concurrent.lock;
 
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicReference;
 
-public class SpinLockDemo {
+public class SpinLock {
 
-    private AtomicBoolean available = new AtomicBoolean(false);
+    // 当前占用锁的对象
+    private AtomicReference<Thread> owner = new AtomicReference<>();
 
     public boolean lock() {
-        while (!available.compareAndSet(false, true)) { // 获取失败则自旋
+        Thread current = Thread.currentThread();
+        while (!owner.compareAndSet(null, current)) { // 获取失败则自旋
 
         }
         return true;
     }
 
     public void unlock() {
-        if (!available.compareAndSet(true, false)) {
+        Thread current = Thread.currentThread();
+        if (!owner.compareAndSet(current, null)) {
             throw new RuntimeException("release lock exception");
         }
         System.out.println("release lock success");
@@ -38,7 +41,7 @@ public class SpinLockDemo {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        SpinLockDemo s = new SpinLockDemo();
+        SpinLock s = new SpinLock();
 
         s.doWithinLock("task 1");
         s.doWithinLock("task 2");
