@@ -1,0 +1,15 @@
+package com.fun.cglib;
+
+import lombok.Data;
+
+@Data
+public class Target {
+
+    private String name;
+
+    @Data
+    class Inner {
+        private int val;
+    }
+
+}

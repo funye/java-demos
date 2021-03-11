@@ -1,6 +1,7 @@
 package com.fun.concurrent.lock;
 
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.function.Function;
 
 public class SpinLock {
 
@@ -46,5 +47,16 @@ public class SpinLock {
         s.doWithinLock("task 1");
         s.doWithinLock("task 2");
         s.doWithinLock("task 3");
+
+        Function<String, String> hello = new Function<String, String>() {
+            @Override
+            public String apply(String s) {
+                return s + " hello";
+            }
+        };
+
+        String str = "test";
+        String rs = hello.apply(str);
+        System.out.println(rs);
     }
 }

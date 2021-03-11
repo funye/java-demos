@@ -1,4 +1,4 @@
-package com.fun.mapping;
+package com.fun.mapping.app;
 
 /**
  * @author huanye

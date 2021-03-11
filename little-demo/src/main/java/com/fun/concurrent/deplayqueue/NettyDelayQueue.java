@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * netty时间论实现的延迟队列
+ * https://segmentfault.com/a/1190000022718540
  */
 public class NettyDelayQueue {
 

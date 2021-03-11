@@ -1,4 +1,4 @@
-package com.fun.order.producer;
+package com.fun.order.test;
 
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;

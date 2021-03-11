@@ -62,7 +62,7 @@ public class ReentrantLockDemo {
     }
 
     protected class Account {
-        private Lock lock = new ReentrantLock();
+        private Lock lock = new ReentrantLock(true);
 
         private long balance;
 

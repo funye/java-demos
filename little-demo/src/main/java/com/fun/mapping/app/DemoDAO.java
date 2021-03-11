@@ -1,4 +1,4 @@
-package com.fun.mapping;
+package com.fun.mapping.app;
 
 import com.fun.mapping.jdop.annotation.DataAccesor;
 import com.fun.mapping.jdop.annotation.Param;

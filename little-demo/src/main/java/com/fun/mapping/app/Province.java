@@ -1,4 +1,4 @@
-package com.fun.mapping;
+package com.fun.mapping.app;
 
 import java.util.List;
 
@@ -6,15 +6,13 @@ import java.util.List;
  * @author huanye
  * Date: 2017/9/22 上午10:10
  */
-public class City {
+public class Province {
 
     private String code;
 
     private String name;
 
-    private Province province;
-
-    private List<Area> areas;
+    private List<City> cities;
 
     public String getCode() {
         return code;
@@ -32,19 +30,11 @@ public class City {
         this.name = name;
     }
 
-    public List<Area> getAreas() {
-        return areas;
+    public List<City> getCities() {
+        return cities;
     }
 
-    public void setAreas(List<Area> areas) {
-        this.areas = areas;
-    }
-
-    public Province getProvince() {
-        return province;
-    }
-
-    public void setProvince(Province province) {
-        this.province = province;
+    public void setCities(List<City> cities) {
+        this.cities = cities;
     }
 }
