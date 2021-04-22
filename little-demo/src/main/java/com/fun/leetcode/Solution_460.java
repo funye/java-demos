@@ -27,15 +27,31 @@ public class Solution_460 {
             int accessCount;
             int time;
 
-            public Node(int key, int value, int accessCount) {
+            public Node(int key, int value, int accessCount, int time) {
                 this.key = key;
                 this.value = value;
                 this.accessCount = accessCount;
+                this.time = time;
             }
 
             @Override
             public int compareTo(Node o) {
                 return this.accessCount == o.accessCount ? this.time - o.time : this.accessCount-o.accessCount;
+            }
+
+            @Override
+            public boolean equals(Object o) {
+                if (this == o) return true;
+                if (o instanceof Node) {
+                    Node node = (Node) o;
+                    return key == node.key && accessCount == node.accessCount && time == node.time;
+                }
+                return false;
+            }
+
+            @Override
+            public int hashCode() {
+                return accessCount * 1000000007 + time;
             }
         }
 
@@ -69,6 +85,10 @@ public class Solution_460 {
         }
 
         public void put(int key, int value) {
+            if (capacity == 0) {
+                return;
+            }
+
             if (cache.containsKey(key)) {
                 Node node = cache.get(key);
                 cnt.remove(node);
@@ -76,7 +96,7 @@ public class Solution_460 {
                 node.time = ++time;
                 cnt.add(node);
             } else {
-                Node node = new Node(key, value, 1);
+                Node node = new Node(key, value, 1, ++time);
                 cache.put(key, node);
                 cnt.add(node);
                 if (cache.size() > capacity) {
