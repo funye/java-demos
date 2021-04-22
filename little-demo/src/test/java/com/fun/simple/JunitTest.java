@@ -2,6 +2,7 @@ package com.fun.simple;
 
 import lombok.Data;
 import org.junit.Test;
+import scala.Predef;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,11 +15,11 @@ public class JunitTest {
     public void testGroupby() {
 
         List<Result> list = new ArrayList<>();
-        list.add(new Result("1","湖北", "11", "武汉","111","武昌区"));
-        list.add(new Result("1","湖北", "11", "武汉","112","江汉区"));
-        list.add(new Result("1","湖北", "12", "孝感","121","孝南区"));
-        list.add(new Result("2","广东", "21", "深圳","211","南山区"));
-        list.add(new Result("2","广东", "22", "广州","221","天河区"));
+        list.add(new Result("1", "湖北", "11", "武汉", "111", "武昌区"));
+        list.add(new Result("1", "湖北", "11", "武汉", "112", "江汉区"));
+        list.add(new Result("1", "湖北", "12", "孝感", "121", "孝南区"));
+        list.add(new Result("2", "广东", "21", "深圳", "211", "南山区"));
+        list.add(new Result("2", "广东", "22", "广州", "221", "天河区"));
 
         Map<String, Map<String, Map<String, List<Result>>>> map = list.stream()
                 .collect(
@@ -30,7 +31,7 @@ public class JunitTest {
     }
 
     @Data
-    public class Result{
+    public class Result {
         private String provinceCode;
         private String provinceName;
 
@@ -64,8 +65,8 @@ public class JunitTest {
                 "  KEY `idx_ssoid` (`ssoid`)\n" +
                 ") ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户客户端连接关系表';";
 
-        for (int i=0; i<100;i++) {
-            System.out.println(tml.replace("lc_user_client", "lc_user_client_"+i));
+        for (int i = 0; i < 100; i++) {
+            System.out.println(tml.replace("lc_user_client", "lc_user_client_" + i));
             System.out.println();
         }
 
@@ -84,4 +85,20 @@ public class JunitTest {
             System.out.println(mask);
         }
     }
+
+    @Test
+    public void testPage() {
+
+        long min = 267242963487975424L, max = 274122347738073600L;
+
+        long gap = (max - min) / 3;
+        long remain = (max - min) % 3;
+        System.out.println("gap=" + gap + ", remain=" + remain);
+
+        System.out.printf("page1 start=%d, end=%d\n" +
+                "page1 start=%d, end=%d\n" +
+                "page1 start=%d, end=%d\n", min, min+gap, min+gap, min+2*gap, min+2*gap, min+3*gap);
+
+    }
+
 }
