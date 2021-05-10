@@ -6,6 +6,7 @@ import lombok.Data;
 public class Target {
 
     private String name;
+    private Integer age;
 
     @Data
     class Inner {

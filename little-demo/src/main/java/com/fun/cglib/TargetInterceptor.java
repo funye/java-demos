@@ -17,9 +17,14 @@ public class TargetInterceptor implements MethodInterceptor {
     @Override
     public Object intercept(Object obj, Method method, Object[] params,
                             MethodProxy proxy) throws Throwable {
-        System.out.println("调用前");
-        Object result = proxy.invokeSuper(obj, params);
-        System.out.println(" 调用后"+result);
+        Object result;
+        if (method.getName().equalsIgnoreCase("getName")) {
+            System.out.println("调用前");
+            result = proxy.invokeSuper(obj, params);
+            System.out.println("调用后"+result);
+        } else {
+            result = proxy.invokeSuper(obj, params);
+        }
         return result;
     }
 

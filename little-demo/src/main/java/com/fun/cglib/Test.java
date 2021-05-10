@@ -9,7 +9,8 @@ public class Test {
         enhancer.setSuperclass(Target.class);
         enhancer.setCallback(new TargetInterceptor());
         Target t=(Target)enhancer.create();
-        System.out.println(t);
+//        System.out.println(t);
         System.out.println(t.getName());
+        System.out.println(t.getAge());
     }
 }
