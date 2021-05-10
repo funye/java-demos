@@ -8,14 +8,14 @@ public class Solution_460 {
         LFUCache lFUCache = new LFUCache(2);
         lFUCache.put(1, 1);   // cache=[1,_], cnt(1)=1
         lFUCache.put(2, 2);   // cache=[2,1], cnt(2)=1, cnt(1)=1
-        lFUCache.get(1);      // 返回 1 cache=[1,2], cnt(2)=1, cnt(1)=2
+        System.out.println(lFUCache.get(1));      // 返回 1 cache=[1,2], cnt(2)=1, cnt(1)=2
         lFUCache.put(3, 3);   // 去除键 2 ，因为 cnt(2)=1 ，使用计数最小 cache=[3,1], cnt(3)=1, cnt(1)=2
-        lFUCache.get(2);      // 返回 -1（未找到）
-        lFUCache.get(3);      // 返回 3 cache=[3,1], cnt(3)=2, cnt(1)=2
+        System.out.println(lFUCache.get(2));      // 返回 -1（未找到）
+        System.out.println(lFUCache.get(3));      // 返回 3 cache=[3,1], cnt(3)=2, cnt(1)=2
         lFUCache.put(4, 4);   // 去除键 1 ，1 和 3 的 cnt 相同，但 1 最久未使用  cache=[4,3], cnt(4)=1, cnt(3)=2
-        lFUCache.get(1);      // 返回 -1（未找到）
-        lFUCache.get(3);      // 返回 3 cache=[3,4], cnt(4)=1, cnt(3)=3
-        lFUCache.get(4);      // 返回 4 cache=[3,4], cnt(4)=2, cnt(3)=3
+        System.out.println(lFUCache.get(1));      // 返回 -1（未找到）
+        System.out.println(lFUCache.get(3));      // 返回 3 cache=[3,4], cnt(4)=1, cnt(3)=3
+        System.out.println(lFUCache.get(4));      // 返回 4 cache=[3,4], cnt(4)=2, cnt(3)=3
     }
 
     static class LFUCache {
@@ -94,16 +94,18 @@ public class Solution_460 {
                 cnt.remove(node);
                 node.accessCount++;
                 node.time = ++time;
+                node.value = value;
                 cnt.add(node);
             } else {
                 Node node = new Node(key, value, 1, ++time);
-                cache.put(key, node);
-                cnt.add(node);
-                if (cache.size() > capacity) {
+                if (cache.size() == capacity) {
                     Node rm = cnt.first();
                     cache.remove(rm.key);
                     cnt.remove(rm);
                 }
+                cache.put(key, node);
+                cnt.add(node);
+
             }
         }
 

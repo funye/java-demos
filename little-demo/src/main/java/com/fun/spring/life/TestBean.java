@@ -1,4 +1,4 @@
-package com.fun.spring;
+package com.fun.spring.life;
 
 import org.springframework.stereotype.Component;
 
@@ -6,11 +6,11 @@ import org.springframework.stereotype.Component;
  * @author yehuan
  * @date 2017-04-21 11:11
  */
-@Component("testBeanTwo")
-public class TestBeanTwo {
+@Component("testBean")
+public class TestBean {
 	private String name;
 
-	public void testMethod() {
+	public void testMethod(String name) {
 		System.out.println("hello " + name);
 	}
 

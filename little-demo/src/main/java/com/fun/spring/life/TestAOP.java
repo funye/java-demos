@@ -1,4 +1,4 @@
-package com.fun.spring;
+package com.fun.spring.life;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -16,15 +16,15 @@ import org.springframework.stereotype.Component;
 public class TestAOP {
 
 
-    @Pointcut("execution(* com.fun.spring.MyBean.testMethod())")
+    @Pointcut("execution(* com.fun.spring.life.MyBean.testMethod())")
     public void before() {
     }
 
-    @Pointcut("execution(* com.fun.spring.TestBean.testMethod())")
+    @Pointcut("execution(* com.fun.spring.life.TestBean.testMethod())")
     public void after() {
     }
 
-    @Pointcut("execution(* com.fun.spring.TestBean.testMethod(*))")
+    @Pointcut("execution(* com.fun.spring.life.TestBean.testMethod(*))")
     public void around() {
     }
 

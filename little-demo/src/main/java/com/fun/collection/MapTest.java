@@ -1,6 +1,8 @@
 package com.fun.collection;
 
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.TreeMap;
 
 /**
  * Map相关测试类
@@ -25,6 +27,24 @@ public class MapTest {
 		String v2 = map.put("key1","world");
 		System.out.println(v2);
 		System.out.println(map.get("key1"));
+
+	}
+
+	public static void testTreeMap() {
+		TreeMap<String, Object> tree = new TreeMap<>();
+		tree.put("key1", "aaa");
+		tree.put("key2", "aaa");
+		tree.put("key3", "aaa");
+
+		TreeMap<String, Object> tree2 = new TreeMap<>(new Comparator<String>() {
+			@Override
+			public int compare(String o1, String o2) {
+				return 0;
+			}
+		});
+		tree.put("key1", "aaa");
+		tree.put("key2", "aaa");
+		tree.put("key3", "aaa");
 
 	}
 }

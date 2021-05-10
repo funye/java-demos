@@ -1,4 +1,4 @@
-package com.fun.spring;
+package com.fun.spring.life;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;

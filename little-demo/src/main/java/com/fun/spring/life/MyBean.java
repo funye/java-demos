@@ -1,4 +1,4 @@
-package com.fun.spring;
+package com.fun.spring.life;
 
 /**
  * @author huanye

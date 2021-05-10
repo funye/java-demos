@@ -1,4 +1,4 @@
-package com.fun.spring.listener;
+package com.fun.spring.event;
 
 import org.springframework.context.ApplicationEvent;
 

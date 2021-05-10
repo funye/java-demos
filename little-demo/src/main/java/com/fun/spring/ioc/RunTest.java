@@ -2,7 +2,7 @@ package com.fun.spring.ioc;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class TestUnit {
+public class RunTest {
 
     public static void main(String[] args) {
 
