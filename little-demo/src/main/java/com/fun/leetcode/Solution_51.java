@@ -7,16 +7,19 @@ public class Solution_51 {
     public static void main(String[] args) {
         Solution_51 s = new Solution_51();
         Scanner scanner = new Scanner(System.in);
-        System.out.println("请输入皇后数 N (输入0结束)：");
-        int n = scanner.nextInt();
-        while (n != 0) {
+
+        while (true) {
             // solveNQueens
-            System.out.println(s.solveNQueens(n));
             System.out.println("请输入皇后数 N (输入0结束)：");
-            n = scanner.nextInt();
+            int n = scanner.nextInt();
+            if (n == 0) {
+                System.out.println("结束测试！！！");
+                System.exit(0);
+            }
+            System.out.println(s.solveNQueens(n));
         }
 
-        System.out.println("结束测试！！！");
+
     }
 
     public List<List<String>> solveNQueens(int n) {

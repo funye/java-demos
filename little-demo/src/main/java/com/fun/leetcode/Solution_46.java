@@ -21,19 +21,28 @@ public class Solution_46 {
         return result;
     }
 
+    /**
+     * 核心算法思想是利用回溯算法（DFS） 不断查找可能的解
+     */
     private void track(int[] nums, LinkedList<Integer> selected, List<List<Integer>> result) {
 
+        // 找到一组解
         if (selected.size() == nums.length) {
             result.add(new ArrayList<>(selected));
             return;
         }
 
+        // 尝试不同的根节点
         for (int i = 0; i < nums.length; i++) {
+            // 排除不合法的选项
             if (selected.contains(nums[i])) {
                 continue;
             }
+            // 尝试选择
             selected.addLast(nums[i]);
+            // 深入下一层
             track(nums, selected, result);
+            // 回溯
             selected.removeLast();
         }
     }
