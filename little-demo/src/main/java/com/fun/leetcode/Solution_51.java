@@ -20,7 +20,7 @@ public class Solution_51 {
     }
 
     public List<List<String>> solveNQueens(int n) {
-        // 初始化
+
         List<List<String>> result = new ArrayList<>();
         backTrack(n, new LinkedList<>(), result, 0);
 
@@ -45,21 +45,21 @@ public class Solution_51 {
             result.add(one);
             return;
         }
-        if (y == n) {
-            return;
-        }
 
         for (int x = 0; x < n; x++) {
-            if (!canSet(selected, x, y)) {
+            if (!isValid(selected, x, y)) {
                 continue;
             }
             selected.addLast(x);
-            backTrack(n, selected, result, ++y);
+            y++;
+            backTrack(n, selected, result, y);
             selected.removeLast();
+            y--;
+
         }
     }
 
-    private boolean canSet(LinkedList<Integer> selected, int x, int y) {
+    private boolean isValid(LinkedList<Integer> selected, int x, int y) {
         for (int i = 0; i < selected.size(); i++) {
             // x 差值绝对值=y差值绝对值 或者X相等
             int sX = selected.get(i);
