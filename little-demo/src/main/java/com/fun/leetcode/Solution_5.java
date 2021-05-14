@@ -7,6 +7,9 @@ public class Solution_5 {
     public static void main(String[] args) {
         Solution_5 s = new Solution_5();
 
+        // "xaabacxcabaaxcabaax" --> "xaabacxcabaax"
+        //
+        // "aacabdkacaa" --> aca
         Scanner scanner = new Scanner(System.in);
         while (true) {
 
@@ -22,9 +25,15 @@ public class Solution_5 {
     }
 
     public String longestPalindrome(String s) {
-        // todo-yh: 双指针游走，判断 p1 p2 何时移动
+        String res="";
+        for (int i = 0; i < s.length(); i++) {
 
-        return null;
+        }
+        return res;
+    }
+
+    private String palindrome(String s, int l, int r) {
+        return "";
     }
 
 
