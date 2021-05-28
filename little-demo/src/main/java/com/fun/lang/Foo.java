@@ -3,6 +3,10 @@ package com.fun.lang;
 import com.fun.collection.User;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Created by fun on 2017/2/13.
@@ -20,5 +24,26 @@ public class Foo implements Serializable{
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
+    }
+
+    public static void main(String[] args) {
+
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+
+        List<Integer> list2 = new ArrayList<>();
+//        list2.add(5);
+//        list2.add(6);
+//        list2.add(3);
+//        list2.add(4);
+
+        Set<Integer> set = list.stream().filter(s->list2.stream().noneMatch(p->p==s)).collect(Collectors.toSet());
+
+        System.out.println(set);
+
+
     }
 }
