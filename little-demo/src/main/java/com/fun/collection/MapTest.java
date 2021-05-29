@@ -14,8 +14,9 @@ import java.util.TreeMap;
 public class MapTest {
 
 	public static void main(String[] args) {
-		testHashMapPut();
+//		testHashMapPut();
 
+		testTreeMap();
 	}
 
 
@@ -36,15 +37,19 @@ public class MapTest {
 		tree.put("key2", "aaa");
 		tree.put("key3", "aaa");
 
-		TreeMap<String, Object> tree2 = new TreeMap<>(new Comparator<String>() {
-			@Override
-			public int compare(String o1, String o2) {
-				return 0;
-			}
+		System.out.println(tree.get("key1"));
+		System.out.println(tree.higherKey("key1"));
+		System.out.println(tree.lowerKey("key2"));
+		System.out.println(tree.floorKey("key2"));
+
+		TreeMap<String, Object> tree2 = new TreeMap<>(String::compareTo);
+		tree2.put("key1", "aaa");
+		tree2.put("key2", "aaa");
+		tree2.put("key3", "aaa");
+
+		tree2.forEach((k,v)-> {
+			System.out.println("key=" + k + ", value=" + v);
 		});
-		tree.put("key1", "aaa");
-		tree.put("key2", "aaa");
-		tree.put("key3", "aaa");
 
 	}
 }
