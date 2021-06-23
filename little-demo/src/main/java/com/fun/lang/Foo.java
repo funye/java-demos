@@ -1,9 +1,11 @@
 package com.fun.lang;
 
 import com.fun.collection.User;
+import org.redisson.cluster.ClusterPartition;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -44,6 +46,19 @@ public class Foo implements Serializable{
 
         System.out.println(set);
 
+        Collection<ClusterPartition> partitions = new ArrayList<>();
+        partitions.add(new ClusterPartition("1"));
+        partitions.add(new ClusterPartition("2"));
 
+        ClusterPartition p = find(partitions, 1);
+        System.out.println(p);
+    }
+
+
+
+    public static ClusterPartition find(Collection<ClusterPartition> partitions, Integer slot) {
+        return partitions.stream().filter(p -> p.hasSlot(slot)).findFirst().orElseThrow(() -> {
+            return new IllegalStateException("Unable to find partition with slot " + slot);
+        });
     }
 }

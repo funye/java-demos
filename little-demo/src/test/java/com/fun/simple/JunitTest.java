@@ -4,7 +4,9 @@ import lombok.Data;
 import org.junit.Test;
 import scala.Predef;
 
+import java.io.*;
 import java.util.ArrayList;
+import java.util.BitSet;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -84,6 +86,8 @@ public class JunitTest {
         if (Integer.bitCount(mask) <= 7) {
             System.out.println(mask);
         }
+
+        System.out.println(1621398078000L+86400);
     }
 
     @Test
@@ -97,7 +101,73 @@ public class JunitTest {
 
         System.out.printf("page1 start=%d, end=%d\n" +
                 "page1 start=%d, end=%d\n" +
-                "page1 start=%d, end=%d\n", min, min+gap, min+gap, min+2*gap, min+2*gap, min+3*gap);
+                "page1 start=%d, end=%d\n", min, min + gap, min + gap, min + 2 * gap, min + 2 * gap, min + 3 * gap);
+
+    }
+
+    @Test
+    public void testBitSet() {
+        BitSet bits1 = new BitSet(16);
+        BitSet bits2 = new BitSet(16);
+
+        // set some bits
+        for (int i = 0; i < 16; i++) {
+            if ((i % 2) == 0) bits1.set(i);
+            if ((i % 5) != 0) bits2.set(i);
+        }
+        System.out.println("Initial pattern in bits1: ");
+        System.out.println(bits1);
+        System.out.println("\nInitial pattern in bits2: ");
+        System.out.println(bits2);
+
+        bits2.andNot(bits1);
+        System.out.println("\nbits2 andNot bits1: ");
+        System.out.println(bits2);
+    }
+
+
+    @Test
+    public void logFilter() {
+
+        String basePath = "D:/Users/80279309/Downloads/redisson-log/";
+        String oldFile = "debug-2021-05-21-1.log";
+        String newFile = "debug-2021-05-21-1-new-15.log";
+
+        String line = "";
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(basePath + oldFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(basePath + newFile));
+
+            StringBuffer sb = new StringBuffer();
+
+            boolean addFlag = false;
+            line = reader.readLine();
+            while (line != null) {
+
+
+                boolean start = line.startsWith("[2021-05-21 15:19") || line.startsWith("[2021-05-21 15:20");
+
+                if (start && line.contains("redisson")) {
+                    addFlag = true;
+                }
+                if (start && !line.contains("redisson")) {
+                    addFlag = false;
+                }
+
+                if (addFlag) {
+                    sb.append(line + "\n");
+                } else {
+                    writer.write(sb.toString());
+                    sb.setLength(0);
+                }
+
+                line = reader.readLine();
+            }
+            reader.close();
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 

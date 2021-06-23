@@ -15,8 +15,8 @@ public class Java8Demo {
     public static void main(String[] args) {
         Java8Demo demo = new Java8Demo();
 //        demo.testLambda();
-        demo.testStream();
-//        demo.testDate();
+//        demo.testStream();
+        demo.testDate();
     }
 
     /**
