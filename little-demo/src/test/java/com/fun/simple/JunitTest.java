@@ -171,4 +171,12 @@ public class JunitTest {
 
     }
 
+
+    @Test
+    public void testLong() {
+        Long count = 1L;
+        count = count == null ? 1 : count++;
+        System.out.println(count);
+    }
+
 }

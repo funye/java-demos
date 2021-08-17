@@ -1,4 +1,4 @@
-package com.fun.network.netty.ls01;
+package com.fun.concurrent.deplayqueue;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
