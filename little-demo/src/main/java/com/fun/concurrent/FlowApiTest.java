@@ -6,6 +6,11 @@ import java.util.concurrent.TimeUnit;
 
 public class FlowApiTest {
 
+    /**
+     * 参考文档
+     * https://javakk.com/1742.html
+     */
+
     public static void main(String[] args) throws InterruptedException {
         // 1. 定义String类型的数据发布者，JDK 9自带的
         // SubmissionPublisher实现了 Publisher
