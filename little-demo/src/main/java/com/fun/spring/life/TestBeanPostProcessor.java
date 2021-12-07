@@ -14,20 +14,16 @@ public class TestBeanPostProcessor implements BeanPostProcessor {
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println("before -----" + beanName);
+        System.out.println("BeanPostProcessor -->postProcessBeforeInitialization -----" + beanName);
         if (bean instanceof TestBean) {
-            ((TestBean) bean).setName("testBean");
-        }
-
-        if (bean instanceof TestBeanTwo) {
-            ((TestBeanTwo) bean).setName("testBeanTwo");
+            ((TestBean) bean).setAge(30);
         }
         return bean;
     }
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println("after-----" + beanName);
+        System.out.println("BeanPostProcessor--->postProcessAfterInitialization-----" + beanName);
         return bean;
     }
 }

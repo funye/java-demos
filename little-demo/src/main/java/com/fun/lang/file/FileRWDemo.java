@@ -84,9 +84,12 @@ public class FileRWDemo {
         File f = new File(file);
 //        RandomAccessFile raf = new RandomAccessFile(f, "rw");
         FileInputStream raf = new FileInputStream(f);
+
+        // 文件过大的时候可以通过map()的position参数设置不同的位置开始映射
         MappedByteBuffer mbin = raf.getChannel().map(FileChannel.MapMode.READ_ONLY, 0, raf.getChannel().size());
-        byte[] b2 = new byte[4];
+        // 设置开始读取的位子
         mbin.position(2);
+        byte[] b2 = new byte[4];
         mbin.get(b2, 0, 4);
         System.out.println(new String(b2));
         raf.close();
