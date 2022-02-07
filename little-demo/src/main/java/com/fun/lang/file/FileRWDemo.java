@@ -13,6 +13,8 @@ public class FileRWDemo {
 //        read(file);
 //        randomRead(file);
         bufferedRandomRead(file);
+
+
     }
 
     public static void write(String file) throws IOException {

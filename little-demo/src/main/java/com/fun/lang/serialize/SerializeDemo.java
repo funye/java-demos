@@ -1,44 +1,25 @@
 package com.fun.lang.serialize;
 
+import lombok.Data;
+
 import java.io.*;
 
+@Data
 public class SerializeDemo implements Serializable{
+
+//    private static final long serialVersionUID = 2L;
 
     private String name;
 
+    private static Integer age = 30; // 先执行一次序列化，然后改变这个值 反序列化，发现打印为修改后的值，说明这个值没有被存储在序列化流里面
+
     private InnerSerialize inner;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public InnerSerialize getInner() {
-        return inner;
-    }
-
-    public void setInner(InnerSerialize inner) {
-        this.inner = inner;
-    }
-
-
-
-
+    @Data
     static class InnerSerialize implements Serializable { // 去掉序列化 查看效果
         private String code;
 
         public InnerSerialize(String code) {
-            this.code = code;
-        }
-
-        public String getCode() {
-            return code;
-        }
-
-        public void setCode(String code) {
             this.code = code;
         }
     }
@@ -51,7 +32,6 @@ public class SerializeDemo implements Serializable{
     public static void main(String[] args) throws Exception {
 
 //        serialize();
-
         deSerialize();
 
     }
@@ -72,7 +52,7 @@ public class SerializeDemo implements Serializable{
                 new File("D:/serialize.txt")));
         SerializeDemo demo = (SerializeDemo) ois.readObject();
         System.out.println("SerializeDemo对象反序列化成功！");;
-        System.out.println(demo.getName()+" : "+ demo.getInner().getCode());
+        System.out.println(demo.getName()+" : "+ demo.getInner().getCode() + ", age=" + SerializeDemo.age);
 
     }
 }

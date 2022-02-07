@@ -55,6 +55,6 @@ public class ZKTest implements Watcher {
     @Override
     public void process(WatchedEvent event) {
         System.out.println("keeperState=" + event.getState().getIntValue());
-        System.out.println("EventType=" + event.getState().getIntValue());
+        System.out.println("EventType=" + event.getType().getIntValue());
     }
 }
